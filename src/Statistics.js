@@ -4,7 +4,8 @@ import {
   rangeIsBelow90Days,
   getLongestDownwardTrend, 
   unixToDate,
-  getHighestVolumeWithDate 
+  getHighestValueWithDate,
+  getBestDatesToBuyAndSell
 } from "./utils";
 
 const Statistics = () => {
@@ -33,13 +34,20 @@ const Statistics = () => {
       )
       volumes = midnightVolumes;
     } 
-    //console.log(prices)
+    
     const longestDownward = getLongestDownwardTrend(prices);
     console.log("longest", longestDownward);
 
-    const highestVolumeWithDate = getHighestVolumeWithDate(volumes);
+    const highestVolumeWithDate = getHighestValueWithDate(volumes);
     console.log("highest volume", highestVolumeWithDate);
 
+
+    if(longestDownward === prices.lenght - 1) {
+      console.log("Price is only decreasing");
+    } else {
+      console.log(getBestDatesToBuyAndSell(prices));
+    }
+    
   }
   
 
