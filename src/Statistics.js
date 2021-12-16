@@ -1,12 +1,14 @@
 import { useState } from "react";
-import DateForm from './DateForm';
+import DateForm from "./DateForm";
 import { 
   rangeIsBelow90Days,
+  unixToDate
+} from "./utils";
+import {
   getLongestDownwardTrend, 
-  unixToDate,
   getHighestValueWithDate,
   getBestDatesToBuyAndSell
-} from "./utils";
+} from "./computations"
 
 const Statistics = () => {
 
@@ -50,7 +52,6 @@ const Statistics = () => {
     
   }
   
-
   analyseData(data);
   
   return (
