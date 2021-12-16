@@ -1,6 +1,11 @@
 import { useState } from "react";
 import DateForm from './DateForm';
-import { rangeIsBelow90Days, getLongestDownwardTrend, unixToDate } from "./utils";
+import { 
+  rangeIsBelow90Days,
+  getLongestDownwardTrend, 
+  unixToDate,
+  getHighestVolumeWithDate 
+} from "./utils";
 
 const Statistics = () => {
 
@@ -32,6 +37,8 @@ const Statistics = () => {
     const longestDownward = getLongestDownwardTrend(prices);
     console.log("longest", longestDownward);
 
+    const highestVolumeWithDate = getHighestVolumeWithDate(volumes);
+    console.log("highest volume", highestVolumeWithDate);
 
   }
   

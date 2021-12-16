@@ -32,6 +32,14 @@ export const rangeIsBelow90Days = (unixStart, unixEnd) => {
   return false;
 }
 
+/**
+ * Computes the longest downward trend within a given values. Array given as a parameter should 
+ * have values sorted by date.
+ * 
+ * @param {Array} prices Array containing arrays where index 0 contains date in unix time
+ * and index 1 contains price of that day (00:00 UTC time)
+ * @returns {number} The maximum mount of days the price was decreasing in a row
+ */
 export const getLongestDownwardTrend = prices => {
   let downward = 0;
   let longestDownward = 0;
@@ -48,3 +56,21 @@ export const getLongestDownwardTrend = prices => {
   }
   return longestDownward;
 } 
+
+/**
+ * Iterates through the list of volumes and returns the one with the
+ * highest volume value.
+ * 
+ * @param {Array} volumes Array containing arrays where index 0 contains date in unix time
+ * and index 1 contains 24h trading volume of that day
+ * @returns {Array} Array containing the highest volume eg. [1628640000000, 30433526566.871216]
+ */
+export const getHighestVolumeWithDate = volumes => {
+  let indexOfHighest = 0;
+  for (let i = 1; i < volumes.length; i++) {
+    if (volumes[i][1] > volumes[indexOfHighest][1]) {
+      indexOfHighest = i;
+    }
+  }
+  return volumes[indexOfHighest];
+}
