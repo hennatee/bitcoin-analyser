@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DateForm from "./DateForm";
 import { 
   rangeIsBelow90Days,
@@ -13,12 +13,17 @@ import {
 const Statistics = () => {
 
   const [data, setData] = useState(null);
+  const [downward, setDownward] = useState(null);
+  const [volume, setVolume] = useState(null);
+  const [timeToBuyAndSell, setTimeToBuyAndSell] = useState(null);
 
   console.log(data);
 
   const handleCallback = formData => {
     setData(formData);
   }
+
+
 
   const analyseData = data => {
     if (!data) return 
@@ -38,26 +43,33 @@ const Statistics = () => {
     } 
     
     const longestDownward = getLongestDownwardTrend(prices);
+    setDownward(longestDownward);
     console.log("longest", longestDownward);
 
     const highestVolumeWithDate = getHighestValueWithDate(volumes);
+    setVolume(highestVolumeWithDate);
     console.log("highest volume", highestVolumeWithDate);
 
 
     if(longestDownward === prices.lenght - 1) {
       console.log("Price is only decreasing");
     } else {
-      console.log(getBestDatesToBuyAndSell(prices));
+      const bestDates = getBestDatesToBuyAndSell(prices);
+      setTimeToBuyAndSell(bestDates);
     }
     
   }
+  useEffect(() => {
+    analyseData(data);
+  }, [data])
   
-  analyseData(data);
   
   return (
     <div>
-      statistics
       <DateForm callbackToParent={handleCallback}/>
+      {downward && <div>Longest downward: {downward} days</div>}
+      {volume && <div>Highest volume: {volume[1]}</div> }
+      {timeToBuyAndSell && <div>Best time to buy:</div>}
     </div>
   )
 }

@@ -19,6 +19,17 @@ export const unixToDate = unix => {
   return date;
 }
 
+/**
+ * @param {Date} day1 
+ * @param {Date} day2
+ * @returns {boolean} True if given dates are on a same day
+ */
+export const sameDay = (day1, day2) => {
+  return day1.getFullYear() === day2.getFullYear() &&
+    day1.getMonth() === day2.getMonth() &&
+    day1.getDate() === day2.getDate();
+}
+
 
 /**
  * Checks if time range between given parameters is longer than 90 days
