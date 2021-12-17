@@ -20,15 +20,18 @@ export const unixToDate = unix => {
 }
 
 /**
+ * Checks whether two dates are on a same day
+ * 
  * @param {Date} day1 
- * @param {Date} day2
+ * @param {Date} day2 
  * @returns {boolean} True if given dates are on a same day
  */
-export const sameDay = (day1, day2) => {
+export const isSameDay = (day1, day2) => {
   return day1.getFullYear() === day2.getFullYear() &&
     day1.getMonth() === day2.getMonth() &&
     day1.getDate() === day2.getDate();
 }
+
 
 
 /**

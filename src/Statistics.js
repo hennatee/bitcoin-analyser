@@ -69,7 +69,7 @@ const Statistics = () => {
       <DateForm callbackToParent={handleCallback}/>
       {downward && <div>Longest downward: {downward} days</div>}
       {volume && <div>Highest volume: {volume[1]}</div> }
-      {timeToBuyAndSell && <div>Best time to buy:</div>}
+      {timeToBuyAndSell && <div>Best time to buy: {timeToBuyAndSell.toBuy[0]}</div>}
     </div>
   )
 }

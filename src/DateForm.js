@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { dateToUnix, sameDay } from './utils'
+import { dateToUnix, isSameDay } from './utils'
 import bitcoinService from './bitcoinService'
 
 /**
@@ -34,8 +34,6 @@ const DateForm = ({callbackToParent}) => {
         console.log(error);
       }
     } 
-    
-    
   }
 
   /** Check that dates are valid for the api request */
@@ -44,15 +42,15 @@ const DateForm = ({callbackToParent}) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (start > currentDate || end > currentDate) {
-      console.log("Molempien päivämäärien tulee olla menneisyydessä")
+      console.log("Ooops! Both dates should be in the past.")
       return false;
     }
     if (end < start) {
-      console.log("Aloituspäivämäärän on oltava ennen lopetuspäivämäärää");
+      console.log("Ooops! Starting date should be before ending date.");
       return false;
     }
-    if (sameDay(start, end)) {
-      console.log("Päivämäärien tulee olla eri päivinä")
+    if (isSameDay(start, end)) {
+      console.log("Oooops! Dates should be different.")
       return false;
     }
     return true;
