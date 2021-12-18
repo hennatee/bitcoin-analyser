@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { dateToUnix, isSameDay } from './utils'
 import bitcoinService from './bitcoinService'
+import { StatisticContainer, DateInput, FormLabel, SubmitButton } from "./styledComponents"
 
 /**
  * This component displays form for getting user input of start date and end date and sends
@@ -58,27 +59,27 @@ const DateForm = ({callbackToParent}) => {
   }
 
   return (
-    <div>
+    <StatisticContainer>
       <form onSubmit={handleSubmit}>
-        <label>Aloitus pvm</label><br/>
-        <input 
+        <FormLabel>Start date</FormLabel><br/>
+        <DateInput 
           type="date" 
           id="inputDate" 
           name="startInput"
           required
           onChange={({ target }) => setStartDate(target.value)}>
-        </input><br/>
-        <label>Lopetus pvm</label><br/>
-        <input 
+        </DateInput><br/>
+        <FormLabel>End date</FormLabel><br/>
+        <DateInput
           type="date" 
           id="inputDate" 
           name="endInput"
           required
           onChange={({ target }) => setEndDate(target.value)}>
-        </input><br/>
-        <button type="submit">Submit</button>
+        </DateInput><br/>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </form>
-    </div>
+    </StatisticContainer>
   )
 }
 

@@ -1,10 +1,21 @@
+import { useNavigate } from "react-router"
 import { 
   Background, 
-  ImageContainer, 
-  AttributionLink 
+  HomeContainer, 
+  AttributionLink,
+  Header,
+  AppTitle,
+  AppTitle2,
+  ButtonCTA
 } from "./styledComponents"
 
 const Home = () => {
+
+  let navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    navigate("/analyzer");
+  }
 
   const styles = {
     maxWidth: "70vw",
@@ -16,11 +27,19 @@ const Home = () => {
 
   return (
     <Background>
-      <ImageContainer>
+      <HomeContainer>
         <img src={imageUrl} alt="bitcoin-background" style={styles}></img>
-        <AttributionLink href="https://www.freepik.com/vectors/technology">Technology vector created by starline - www.freepik.com</AttributionLink>
-      </ImageContainer>
-      
+        <AttributionLink 
+          href="https://www.freepik.com/vectors/technology">
+          Technology vector created by starline - www.freepik.com
+        </AttributionLink>
+        <Header>
+          <AppTitle>Hackacoin</AppTitle>
+          <AppTitle2>Bitcoin Analyzer</AppTitle2>
+          <ButtonCTA
+            onClick={() => handleCtaClick()}>Get Started</ButtonCTA>
+        </Header>
+      </HomeContainer> 
     </Background>
   )
 }

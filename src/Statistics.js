@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import DateForm from "./DateForm";
+import AnalyzedData from "./AnalyzedData";
+import { Background } from "./styledComponents";
 import { 
   rangeIsBelow90Days,
   unixToDate
@@ -65,12 +67,13 @@ const Statistics = () => {
   
   
   return (
-    <div>
+    <Background>
       <DateForm callbackToParent={handleCallback}/>
-      {downward && <div>Longest downward: {downward} days</div>}
-      {volume && <div>Highest volume: {volume[1]}</div> }
-      {timeToBuyAndSell && <div>Best time to buy: {timeToBuyAndSell.toBuy[0]}</div>}
-    </div>
+      <AnalyzedData 
+        downward={downward}
+        volume={volume}
+        timeToBuyAndSell={timeToBuyAndSell}/>
+    </Background>
   )
 }
 
