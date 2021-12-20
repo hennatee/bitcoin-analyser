@@ -19,6 +19,23 @@ export const HomeContainer = styled.div`
   border-radius: 6px;
   object-fit: cover;
   position: relative;
+  @media (max-width: 992px) {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+
+  }
+`
+export const Image = styled.img`
+  width: auto;
+  height: 100vh;
+  border-radius: 2%;
+  margin-left: -12rem;
+  @media (min-width: 992px) {
+    max-width: 70vw;
+    height: auto;
+    margin-left: 0;
+  }
 `
 
 export const AttributionLink = styled.a`
@@ -39,6 +56,15 @@ export const Header = styled.div`
   right: 10%;
   top: 25%;
   z-index: 1000;
+  @media (max-width: 600px) {
+    width: 80vw;
+    height: 80vh;
+    right: 5vw;
+    top: 5%;
+    background-color: rgba(6, 10, 64, 0.8);
+    padding: 2rem 5vw;
+    border-radius: 10px;
+  }
 `
 
 export const AppTitle = styled.h1`
@@ -46,6 +72,12 @@ export const AppTitle = styled.h1`
   color: #1db351;
   margin-bottom: 0;
   font-family: 'Black Ops One', cursive;
+  @media (max-width: 1200px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 600px) {
+    margin-top: 0;
+  }
 `
 
 export const AppTitle2 = styled.h2`
@@ -72,6 +104,11 @@ export const ButtonCTA = styled.button`
   &:focus {
     transform: scale(1.2);
   }
+  @media (max-width: 600px) {
+    width: 150px;
+    height: 40px;
+    margin-top: 4rem;
+  }
 `
 
 //Statistics components
@@ -90,7 +127,7 @@ export const StatisticContainer = styled.div`
     width: 90vw;
     height: auto;
     padding: 1.5rem;
-    margin: 0.3rem 1rem;
+    margin: 0.1rem 1rem;
   }
   &.chart {
     width: 500px;
@@ -155,7 +192,7 @@ export const SubmitButton = styled.button`
   width: 120px;
   height: 40px;
   margin-top: 1rem;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     font-size: 0.9rem;
     width: 100px;
     height: 35px;

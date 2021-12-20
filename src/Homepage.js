@@ -6,29 +6,24 @@ import {
   Header,
   AppTitle,
   AppTitle2,
-  ButtonCTA
+  ButtonCTA,
+  Image
 } from "./styledComponents"
 
 const Home = () => {
 
   let navigate = useNavigate();
 
-  const handleCtaClick = () => {
+  const handleClick = () => {
     navigate("/analyzer");
   }
-
-  const styles = {
-    maxWidth: "70vw",
-    height: "auto",
-    borderRadius: "2%"
-    }
   
   const imageUrl = process.env.PUBLIC_URL + '/bitcoin-background.jpg'
 
   return (
     <Background>
       <HomeContainer>
-        <img src={imageUrl} alt="bitcoin-background" style={styles}></img>
+        <Image src={imageUrl} alt="bitcoin-background" ></Image>
         <AttributionLink 
           href="https://www.freepik.com/vectors/technology">
           Technology vector created by starline - www.freepik.com
@@ -37,7 +32,9 @@ const Home = () => {
           <AppTitle>Hackacoin</AppTitle>
           <AppTitle2>Bitcoin Analyzer</AppTitle2>
           <ButtonCTA
-            onClick={() => handleCtaClick()}>Get Started</ButtonCTA>
+            onClick={() => handleClick()}>
+            Get Started
+          </ButtonCTA>
         </Header>
       </HomeContainer> 
     </Background>

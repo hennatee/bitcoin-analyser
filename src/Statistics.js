@@ -78,6 +78,8 @@ const Statistics = () => {
     if(priceIsIncreasing(longestDownward, priceData)) {
       const bestDates = getBestDatesToBuyAndSell(priceData);
       setTimeToBuyAndSell(bestDates);
+    } else {
+      setTimeToBuyAndSell(null);
     }
     
   }
