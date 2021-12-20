@@ -2,12 +2,14 @@ import styled from "styled-components"
 
 export const Background = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   background-color: #060a40;
+  
 `
 
 export const HomeContainer = styled.div`
@@ -75,26 +77,61 @@ export const ButtonCTA = styled.button`
 //Statistics components
 
 export const StatisticContainer = styled.div`
-  padding: 2rem;
-  background: #252480;
+  padding: 3rem 2rem;
+  background: #121075;
   border-radius: 10px;
-  margin: 2rem;
+  margin: 1rem;
+  height: 320px;
+  width: 230px;
+  @media (max-width: 768px) {
+    width: auto;
+  }
+  @media (max-width: 600px) {
+    width: 70vw;
+    height: auto;
+    padding: 1.5rem;
+  }
+  &.chart {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+      width: 80vw;
+      height: auto;
+    }
+    @media (max-width: 600px) {
+      padding: .5rem;
+    }
+  }
 `
 
 export const DateInput = styled.input`
   width: 200px;
   height: 40px;
-  padding-left: 1rem;
+  padding: 0 1rem;
   border-radius: 4px;
   border: none;
   margin: 1rem 0;
   font-family: 'Electrolize', sans-serif;
   font-size: 1rem;
+  @media (max-width: 768px) {
+    width: 150px;
+  }
+  @media (max-width: 600px) {
+    width: 130px;
+    height: 35px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
 `
 
 export const FormLabel = styled.label`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
+  @media only screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `
 
 export const SubmitButton = styled.button`
@@ -107,14 +144,34 @@ export const SubmitButton = styled.button`
   width: 120px;
   height: 40px;
   margin-top: 1rem;
+  @media only screen and (max-width: 600px) {
+    font-size: 0.9rem;
+    width: 100px;
+    height: 35px;
+    margin-top: 0.5rem;
+  }
 `
 
 export const HeadingSm = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
+  font-weight: 400;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+  &:first-of-type {
+    margin-top: 0;
+  }
+
 `
 
 export const TextSm = styled.p`
   font-size: 1rem;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `

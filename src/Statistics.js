@@ -1,69 +1,89 @@
 import { useState, useEffect } from "react";
 import DateForm from "./DateForm";
 import AnalyzedData from "./AnalyzedData";
+import Chart from "./Chart"
 import { Background } from "./styledComponents";
 import { 
-  rangeIsBelow90Days,
+  rangeIsBelow91Days,
   unixToDate
 } from "./utils";
 import {
   getLongestDownwardTrend, 
-  getHighestValueWithDate,
+  getArrayByHighestIndexOne,
   getBestDatesToBuyAndSell
 } from "./computations"
 
 const Statistics = () => {
 
   const [data, setData] = useState(null);
-  const [downward, setDownward] = useState(null);
-  const [volume, setVolume] = useState(null);
-  const [timeToBuyAndSell, setTimeToBuyAndSell] = useState(null);
-
-  console.log(data);
+  const [prices, setPrices] = useState(null);
+  const [downward, setDownward] = useState();
+  const [volume, setVolume] = useState();
+  const [timeToBuyAndSell, setTimeToBuyAndSell] = useState();
 
   const handleCallback = formData => {
     setData(formData);
   }
 
+  /**
+   * @param {Array} arrays Array of arrays with length >= 2
+   * @returns {Array} Filtered array only including arrays that 
+   * have 00:xx UTC time in in index 0 
+   */
+  const getMidnightValues = arrays => {
+    return arrays.filter(array => 
+      unixToDate(array[0]).getUTCHours() === 0
+    )
+  }
 
+  /**
+   * Checks if price is increasing during the given time range
+   * 
+   * @param {number} downward Computed value of longest downward in given time range
+   * @param {Array} priceData Data used to compute the downward
+   * @returns {boolean} Returns true if price is increasing at some point in given data  
+   */
+  const priceIsIncreasing = (downward, priceData) => {
+    return downward < (priceData.length - 1)
+  }
 
+  /**
+   * Analyzes the response data gotten from CoinGecko api.
+   * - computes the longest downward trend
+   * - finds the day with the highest trading volume
+   * - computes the best day to buy and sell
+   * 
+   * @param {Object} data Data-object returned from form-component including
+   * properties startUnix, endUnix and response
+   */
   const analyseData = data => {
     if (!data) return 
-    let prices = data.response.prices;
-    let volumes = data.response.total_volumes;
-    if (rangeIsBelow90Days(data.startUnix, data.endUnix)) {
-      console.log("less than ninety days");
-      const midnigthPrices = prices.filter(priceArray => 
-        unixToDate(priceArray[0]).getUTCHours() === 0
-      )
-      prices = midnigthPrices;
+    let priceData = data.response.prices;
+    let volumeData = data.response.total_volumes;
 
-      const midnightVolumes = volumes.filter(volumeArray =>
-        unixToDate(volumeArray[0]).getUTCHours() === 0
-      )
-      volumes = midnightVolumes;
+    //endpoint returns hourly data for time range between 1-90 days
+    if (rangeIsBelow91Days(data.startUnix, data.endUnix)) {
+      priceData = getMidnightValues(priceData)
+      volumeData = getMidnightValues(volumeData);
     } 
+
+    setPrices(priceData);
     
-    const longestDownward = getLongestDownwardTrend(prices);
+    const longestDownward = getLongestDownwardTrend(priceData);
     setDownward(longestDownward);
-    console.log("longest", longestDownward);
 
-    const highestVolumeWithDate = getHighestValueWithDate(volumes);
-    setVolume(highestVolumeWithDate);
-    console.log("highest volume", highestVolumeWithDate);
+    const highestVolumeData = getArrayByHighestIndexOne(volumeData);
+    setVolume(highestVolumeData);
 
-
-    if(longestDownward === prices.lenght - 1) {
-      console.log("Price is only decreasing");
-    } else {
-      const bestDates = getBestDatesToBuyAndSell(prices);
+    if(priceIsIncreasing(longestDownward, priceData)) {
+      const bestDates = getBestDatesToBuyAndSell(priceData);
       setTimeToBuyAndSell(bestDates);
     }
     
   }
   useEffect(() => {
     analyseData(data);
-  }, [data])
+  },  [data])
   
   
   return (
@@ -73,6 +93,7 @@ const Statistics = () => {
         downward={downward}
         volume={volume}
         timeToBuyAndSell={timeToBuyAndSell}/>
+      <Chart prices={prices}/>
     </Background>
   )
 }
