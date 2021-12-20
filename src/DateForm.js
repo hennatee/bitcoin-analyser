@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { dateToUnix, isSameDay, datesAreNotInPast} from './utils'
 import bitcoinService from './bitcoinService'
-import { StatisticContainer, DateInput, FormLabel, SubmitButton } from "./styledComponents"
+import { StatisticContainer, DateInput, FormLabel, SubmitButton, InputContainer } from "./styledComponents"
 
 /**
  * This component displays form for getting user input of start date and end date and sends
@@ -62,22 +62,28 @@ const DateForm = ({callbackToParent}) => {
   return (
     <StatisticContainer className="form">
       <form onSubmit={handleSubmit}>
-        <FormLabel>Start date</FormLabel><br/>
-        <DateInput 
-          type="date" 
-          id="inputDate" 
-          name="startInput"
-          required
-          onChange={({ target }) => setStartDate(target.value)}>
-        </DateInput><br/>
-        <FormLabel>End date</FormLabel><br/>
-        <DateInput
-          type="date" 
-          id="inputDate" 
-          name="endInput"
-          required
-          onChange={({ target }) => setEndDate(target.value)}>
-        </DateInput><br/>
+        <InputContainer>
+          <div>
+            <FormLabel>Start date</FormLabel><br/>
+            <DateInput 
+              type="date" 
+              id="inputDate" 
+              name="startInput"
+              required
+              onChange={({ target }) => setStartDate(target.value)}>
+            </DateInput>
+          </div>
+          <div>
+            <FormLabel>End date</FormLabel><br/>
+            <DateInput
+              type="date" 
+              id="inputDate" 
+              name="endInput"
+              required
+              onChange={({ target }) => setEndDate(target.value)}>
+            </DateInput>
+          </div>
+        </InputContainer>
         <SubmitButton type="submit">Submit</SubmitButton>
       </form>
     </StatisticContainer>

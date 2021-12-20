@@ -87,9 +87,10 @@ export const StatisticContainer = styled.div`
     width: auto;
   }
   @media (max-width: 600px) {
-    width: 70vw;
+    width: 90vw;
     height: auto;
     padding: 1.5rem;
+    margin: 0.3rem 1rem;
   }
   &.chart {
     width: 500px;
@@ -97,13 +98,22 @@ export const StatisticContainer = styled.div`
     align-items: center;
     justify-content: center;
     @media (max-width: 768px) {
-      width: 80vw;
+      width: 90vw;
       height: auto;
     }
     @media (max-width: 600px) {
       padding: .5rem;
     }
   }
+`
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 600px) {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
 `
 
 export const DateInput = styled.input`
@@ -119,10 +129,11 @@ export const DateInput = styled.input`
     width: 150px;
   }
   @media (max-width: 600px) {
-    width: 130px;
+    width: 32vw;
     height: 35px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-top: 0.5rem;
+    padding: 0 0.5rem;
   }
 `
 
@@ -130,7 +141,7 @@ export const FormLabel = styled.label`
   font-size: 1.1rem;
   color: #fff;
   @media only screen and (max-width: 600px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `
 
@@ -148,7 +159,7 @@ export const SubmitButton = styled.button`
     font-size: 0.9rem;
     width: 100px;
     height: 35px;
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 `
 
@@ -157,7 +168,8 @@ export const HeadingSm = styled.h3`
   color: #fff;
   font-weight: 400;
   @media (max-width: 600px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0;
   }
   &:first-of-type {
     margin-top: 0;
@@ -169,7 +181,7 @@ export const TextSm = styled.p`
   font-size: 1rem;
   color: #fff;
   @media (max-width: 600px) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   &:last-of-type {
     margin-bottom: 0;
