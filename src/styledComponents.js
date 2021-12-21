@@ -38,7 +38,8 @@ export const Image = styled.img`
     &.image-sm {
       display: none;
     }
-    margin-left: -200px;
+    margin-left: -150px;
+    width: auto;
   }
   @media (min-width: 768px) {
     margin-left: 0;
