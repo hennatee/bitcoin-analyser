@@ -9,41 +9,56 @@ export const Background = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: #060a40;
-  
+  @media (max-width: 600px) {
+    align-items: flex-start;
+  }
 `
 
 export const HomeContainer = styled.div`
-  max-height: 90vh;
-  width: auto;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
-  border-radius: 6px;
-  object-fit: cover;
   position: relative;
-  @media (max-width: 992px) {
-    width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
-
+  @media (orientation: portrait) {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @media (min-width: 768px) {
+      width: 60vw;
+    }
   }
 `
 export const Image = styled.img`
-  width: auto;
-  height: 100vh;
-  border-radius: 2%;
-  margin-left: -12rem;
-  @media (min-width: 992px) {
-    max-width: 70vw;
-    height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  @media (orientation: landscape) {
+    &.image-sm {
+      display: none;
+    }
+    margin-left: -200px;
+  }
+  @media (min-width: 768px) {
     margin-left: 0;
+  }
+  @media (orientation: portrait) {
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    &.image-lg {
+      display: none;
+    }
   }
 `
 
 export const AttributionLink = styled.a`
-  font-size: 0.8rem;
-  position: absolute;
+  font-size: 0.7rem;
+  position: fixed;
   bottom: 1rem;
   left: 1.5rem;
-  color: #1db351;
+  color: #6b9fed;
 `
 
 export const Header = styled.div`
@@ -53,37 +68,39 @@ export const Header = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 10%;
-  top: 25%;
+  right: 15%;
+  bottom: 25%;
   z-index: 1000;
-  @media (max-width: 600px) {
-    width: 80vw;
-    height: 80vh;
-    right: 5vw;
-    top: 5%;
-    background-color: rgba(6, 10, 64, 0.8);
-    padding: 2rem 5vw;
-    border-radius: 10px;
+  @media (orientation: portrait) {
+    width: 100%;
+    height: auto;
+    right: 0;
+    bottom: 2rem;
+    position: relative;
   }
 `
 
 export const AppTitle = styled.h1`
   font-size: 4rem;
-  color: #1db351;
+  color: #24f9f9;
   margin-bottom: 0;
   font-family: 'Black Ops One', cursive;
   @media (max-width: 1200px) {
     font-size: 3rem;
   }
   @media (max-width: 600px) {
+    font-size: 2.5rem;
     margin-top: 0;
   }
 `
 
 export const AppTitle2 = styled.h2`
   font-size: 1.5rem;
-  color: #85e882;
+  color: #24f9f9;
   margin-top: 0;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
 `
 
 export const ButtonCTA = styled.button`
@@ -94,11 +111,13 @@ export const ButtonCTA = styled.button`
   margin-top: 2rem;
   font-family: 'Electrolize', sans-serif;
   color: #fff;
-  background: #ff5f33;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ff5f33), to(#b83a1f));
-  background: -moz-linear-gradient(top, #ff5f33, #b83a1f);
-  background: linear-gradient(to bottom, #ff5f33, #b83a1f);
-  box-shadow: #ff582f 0px 0px 20px 0px;
+  background: #e537ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
+  background: -moz-linear-gradient(top, #e537ff, #8d22c7);
+  background: linear-gradient(to bottom, #e537ff, #8d22c7);
+  -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
+  -moz-box-shadow: #d332ff 0px 0px 40px 0px;
+  box-shadow: #d332ff 0px 0px 40px 0px;
   transition: all .3s ease-in-out;
   &:hover,
   &:focus {
@@ -107,7 +126,7 @@ export const ButtonCTA = styled.button`
   @media (max-width: 600px) {
     width: 150px;
     height: 40px;
-    margin-top: 4rem;
+    margin-top: 1rem;
   }
 `
 

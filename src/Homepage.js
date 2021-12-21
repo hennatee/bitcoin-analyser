@@ -18,16 +18,14 @@ const Home = () => {
     navigate("/analyzer");
   }
   
-  const imageUrl = process.env.PUBLIC_URL + '/bitcoin-background.jpg'
+  const imageLgUrl = process.env.PUBLIC_URL + "/bitcoin-lg.jpg";
+  const imageSmUrl = process.env.PUBLIC_URL + "/bitcoin-sm.jpg";
 
   return (
     <Background>
       <HomeContainer>
-        <Image src={imageUrl} alt="bitcoin-background" ></Image>
-        <AttributionLink 
-          href="https://www.freepik.com/vectors/technology">
-          Technology vector created by starline - www.freepik.com
-        </AttributionLink>
+        <Image className="image-lg" src={imageLgUrl} alt="bitcoin-background" ></Image>
+        <Image className="image-sm" src={imageSmUrl} alt="bitcoin-background" ></Image>  
         <Header>
           <AppTitle>Hackacoin</AppTitle>
           <AppTitle2>Bitcoin Analyzer</AppTitle2>
@@ -36,6 +34,10 @@ const Home = () => {
             Get Started
           </ButtonCTA>
         </Header>
+        <AttributionLink 
+          href="https://www.freepik.com/vectors/background">
+          Background vector created by starline - www.freepik.com
+        </AttributionLink>
       </HomeContainer> 
     </Background>
   )
