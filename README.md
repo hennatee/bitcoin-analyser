@@ -1,3 +1,11 @@
+# Bitcoin analyzer
+
+
+
+### Live Demo
+
+This app is hosted with AWS Amplify. Try it yourself https://main.d2mzu5ov323p39.amplifyapp.com/
+
 ### Run the app locally
 
 If you want to run the app locally, clone this repository first.\
@@ -13,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Launches the test runner in the interactive watch mode.\
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
