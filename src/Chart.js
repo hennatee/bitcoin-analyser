@@ -51,11 +51,20 @@ const Chart = ({prices}) => {
     return DEFAULT_DATES;
   }
 
+  const getTimeRange = prices => {
+    if (prices) {
+      const from = getDates(prices)[0];
+      const to = getDates(prices)[prices.length - 1];
+      return `${from} - ${to}`;
+    }
+    return "-";
+  }
+
   const chartData = {
     labels: getDates(prices),
     datasets: [
       {
-        label: 'Price in euros',
+        label: getTimeRange(prices),
         data: getPrices(prices),
         backgroundColor: [
           'rgba(255, 255, 255, 0.8)',
@@ -63,7 +72,7 @@ const Chart = ({prices}) => {
           'rgba(255, 255, 255, 0.6)',
         ],
         // border = line displayed in chart
-        borderColor: "#fff",
+        borderColor: "#24f9f9",
         borderWidth: prices ? 2 : 0
       }
     ]

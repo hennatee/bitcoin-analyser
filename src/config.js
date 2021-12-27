@@ -1,12 +1,13 @@
+/** Configuration of line chart */
 export const options = {
   responsive: true,
   plugins: {
     legend: {
-      display: false,
+      display: true,
     },
     title: {
       display: true,
-      text: "Price in Euros",
+      text: "Price of bitcoin in euros",
       color: "#e8e8e8",
       font: {
         size: 18,

@@ -49,9 +49,9 @@ export const Button = styled.button`
       box-shadow: #d332ff 0px 0px 10px 0px;
     }
     @media (max-width: 600px) {
-      font-size: 0.9rem;
-      width: 100px;
-      height: 35px;
+      font-size: 0.7rem;
+      width: 90px;
+      height: 30px;
       margin-top: 0;
     }
   }
@@ -165,7 +165,7 @@ export const StatisticContainer = styled.div`
   @media (max-width: 600px) {
     width: 90vw;
     height: auto;
-    padding: 1.5rem;
+    padding: 1rem;
     margin: 0.1rem 1rem;
   }
   &.chart {
@@ -178,9 +178,6 @@ export const StatisticContainer = styled.div`
       height: auto;
       padding: .5rem;
     }
-    @media (max-width: 600px) {
-      
-    }
   }
 `
 
@@ -191,6 +188,9 @@ export const FormRow = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
+  }
+  @media (max-width: 319px) {
+    flex-wrap: wrap;
   }
 `
 
@@ -216,7 +216,7 @@ export const DateInput = styled.input`
     width: 150px;
   }
   @media (max-width: 600px) {
-    width: 32vw;
+    width: 34vw;
     height: 35px;
     font-size: 0.7rem;
     margin-top: 0.5rem;
