@@ -7,9 +7,11 @@ export const options = {
     title: {
       display: true,
       text: "Price in Euros",
-      color: "#fff",
+      color: "#e8e8e8",
       font: {
-        size: 18
+        size: 18,
+        family: "Electrolize, sans-serif",
+        weight: 400
       }
     },
   },
@@ -21,12 +23,12 @@ export const options = {
   scales: {
     x: {
       ticks: {
-        color: "#fff"
+        color: "#e8e8e8"
       }
     },
     y: {
       ticks: {
-        color: "#fff"
+        color: "#e8e8e8"
       }
     }
   }

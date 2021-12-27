@@ -19,7 +19,7 @@ const AnalyzedData = ({downward, volume, timeToBuyAndSell}) => {
    * Formats word "day" properly according to the amount 
    * 
    * @param {number} downward 
-   * @returns {string} eg. 1 day / 3 days
+   * @returns {string} 
    */
   const downwardToText = (downward = PLACEHOLDER_EMPTY) => {
     if (downward === 1) return `${downward} day`;

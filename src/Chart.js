@@ -64,7 +64,7 @@ const Chart = ({prices}) => {
         ],
         // border = line displayed in chart
         borderColor: "#fff",
-        borderWidth: prices ? 2 : 0,
+        borderWidth: prices ? 2 : 0
       }
     ]
   }

@@ -67,7 +67,7 @@ export const twoDecimals = number => {
  */
 export const datesAreNotInPast = (day1, day2) => {
   const currentDate = new Date();
-  return day1 >= currentDate || day2 >= currentDate;
+  return day1 > currentDate || day2 > currentDate;
 }
 
 

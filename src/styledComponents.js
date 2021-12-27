@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+//Utility components
+
 export const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
@@ -9,10 +11,53 @@ export const Background = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: #060a40;
-  @media (max-width: 600px) {
-    align-items: flex-start;
+`
+
+export const Button = styled.button`
+  width: 180px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  margin-top: 2rem;
+  font-family: 'Electrolize', sans-serif;
+  color: #fff;
+  background: #e537ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
+  background: -moz-linear-gradient(top, #e537ff, #8d22c7);
+  background: linear-gradient(to bottom, #e537ff, #8d22c7);
+  &.cta-home {
+    -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
+    -moz-box-shadow: #d332ff 0px 0px 40px 0px;
+    box-shadow: #d332ff 0px 0px 40px 0px;
+    transition: all .3s ease-in-out;
+    &:hover, &:focus {
+      transform: scale(1.2);
+    }
+    @media (max-width: 600px) {
+      width: 150px;
+      height: 40px;
+      margin-top: 1rem;
+    }
+  }
+  &.submit {
+    width: 120px;
+    height: 40px;
+    margin-top: 1rem;
+    &:hover, &:focus {
+      -webkit-box-shadow: #d332ff 0px 0px 10px 0px;
+      -moz-box-shadow: #d332ff 0px 0px 10px 0px;
+      box-shadow: #d332ff 0px 0px 10px 0px;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
+      width: 100px;
+      height: 35px;
+      margin-top: 0;
+    }
   }
 `
+
+//Homepage components
 
 export const HomeContainer = styled.div`
   height: 100vh;
@@ -105,54 +150,7 @@ export const AppTitle2 = styled.h2`
   }
 `
 
-export const Button = styled.button`
-  width: 180px;
-  height: 50px;
-  border-radius: 30px;
-  border: none;
-  margin-top: 2rem;
-  font-family: 'Electrolize', sans-serif;
-  color: #fff;
-  background: #e537ff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
-  background: -moz-linear-gradient(top, #e537ff, #8d22c7);
-  background: linear-gradient(to bottom, #e537ff, #8d22c7);
-  &.cta-home {
-    -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
-    -moz-box-shadow: #d332ff 0px 0px 40px 0px;
-    box-shadow: #d332ff 0px 0px 40px 0px;
-    transition: all .3s ease-in-out;
-    &:hover, &:focus {
-      transform: scale(1.2);
-    }
-    @media (max-width: 600px) {
-      width: 150px;
-      height: 40px;
-      margin-top: 1rem;
-    }
-  }
-  &.submit {
-    width: 120px;
-    height: 40px;
-    margin-top: 1rem;
-    &:hover, &:focus {
-      -webkit-box-shadow: #d332ff 0px 0px 10px 0px;
-      -moz-box-shadow: #d332ff 0px 0px 10px 0px;
-      box-shadow: #d332ff 0px 0px 10px 0px;
-    }
-    @media (max-width: 600px) {
-      font-size: 0.9rem;
-      width: 100px;
-      height: 35px;
-      margin-top: 0;
-    }
-  }
-`
-
-export const SubmitButton = styled.button`
-  
-`
-//Statistics components
+//StatisticsPage components
 
 export const StatisticContainer = styled.div`
   padding: 3rem 2rem;
@@ -178,9 +176,10 @@ export const StatisticContainer = styled.div`
     @media (max-width: 768px) {
       width: 90vw;
       height: auto;
+      padding: .5rem;
     }
     @media (max-width: 600px) {
-      padding: .5rem;
+      
     }
   }
 `
@@ -227,7 +226,7 @@ export const DateInput = styled.input`
 
 export const FormLabel = styled.label`
   font-size: 1.1rem;
-  color: #fff;
+  color: #e8e8e8;
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
   }
@@ -235,11 +234,12 @@ export const FormLabel = styled.label`
 
 export const HeadingSm = styled.h3`
   font-size: 1.1rem;
-  color: #fff;
+  color: #e8e8e8;
   font-weight: 400;
+  margin-bottom: 0.7rem;
   @media (max-width: 600px) {
     font-size: 0.9rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
   &:first-of-type {
     margin-top: 0;
@@ -248,8 +248,10 @@ export const HeadingSm = styled.h3`
 `
 
 export const TextSm = styled.p`
-  font-size: 1rem;
-  color: #fff;
+  font-size: 0.9rem;
+  color: #aeb5bf;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }

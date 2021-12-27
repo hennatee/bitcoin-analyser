@@ -21,6 +21,11 @@ const Statistics = () => {
   const [volume, setVolume] = useState();
   const [timeToBuyAndSell, setTimeToBuyAndSell] = useState();
 
+  /**
+   * Updates state when data is received from form
+   * 
+   * @param {Object} formData 
+   */
   const handleCallback = formData => {
     setData(formData);
   }
@@ -85,6 +90,7 @@ const Statistics = () => {
   }
   useEffect(() => {
     analyseData(data);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },  [data])
   
   
