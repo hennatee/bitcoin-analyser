@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { dateToUnix, isSameDay, datesAreNotInPast} from './utils'
 import bitcoinService from './bitcoinService'
-import { StatisticContainer, DateInput, FormLabel, SubmitButton, InputContainer } from "./styledComponents"
+import { StatisticContainer, DateInput, FormLabel, Button, FormRow, NotificationText } from "./styledComponents"
 
 /**
  * This component displays form for getting user input of start date and end date and sends
@@ -12,10 +12,11 @@ import { StatisticContainer, DateInput, FormLabel, SubmitButton, InputContainer 
  */
 const DateForm = ({callbackToParent}) => {
 
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [notification, setNotification] = useState("");
 
-  const HOUR_IN_SECONDS = 60 * 60 //3600s
+  const HOUR_IN_SECONDS = 60 * 60; //3600s
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -33,8 +34,10 @@ const DateForm = ({callbackToParent}) => {
           response: response 
         }
         callbackToParent(data);
+        setNotification("");
       } catch (error) {
         console.log(error);
+        setNotification("Something went wrong, please try again!");
       }
     } 
   }
@@ -44,17 +47,18 @@ const DateForm = ({callbackToParent}) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (datesAreNotInPast(start, end)) {
-      console.log("Ooops! Both dates should be in the past.")
+      setNotification("Ooops! Both dates should be in the past.");
       return false;
     }
     if (end < start) {
-      console.log("Ooops! Starting date should be before ending date.");
+      setNotification("Ooops! Start date should be before end date.");
       return false;
     }
     if (isSameDay(start, end)) {
-      console.log("Oooops! Dates should be different.")
+      setNotification("Oooops! Dates should be different.");
       return false;
     }
+    setNotification("");
     return true;
 
   }
@@ -62,7 +66,7 @@ const DateForm = ({callbackToParent}) => {
   return (
     <StatisticContainer className="form">
       <form onSubmit={handleSubmit}>
-        <InputContainer>
+        <FormRow>
           <div>
             <FormLabel>Start date</FormLabel><br/>
             <DateInput 
@@ -83,8 +87,11 @@ const DateForm = ({callbackToParent}) => {
               onChange={({ target }) => setEndDate(target.value)}>
             </DateInput>
           </div>
-        </InputContainer>
-        <SubmitButton type="submit">Submit</SubmitButton>
+        </FormRow>
+        <FormRow>
+          <Button className="submit" type="submit">Submit</Button>
+          <NotificationText>{notification}</NotificationText>
+        </FormRow>
       </form>
     </StatisticContainer>
   )

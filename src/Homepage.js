@@ -6,7 +6,7 @@ import {
   Header,
   AppTitle,
   AppTitle2,
-  ButtonCTA,
+  Button,
   Image
 } from "./styledComponents"
 
@@ -29,10 +29,11 @@ const Home = () => {
         <Header>
           <AppTitle>Hackacoin</AppTitle>
           <AppTitle2>Bitcoin Analyzer</AppTitle2>
-          <ButtonCTA
+          <Button
+            className="cta-home"
             onClick={() => handleClick()}>
             Get Started
-          </ButtonCTA>
+          </Button>
         </Header>
         <AttributionLink 
           href="https://www.freepik.com/vectors/background">

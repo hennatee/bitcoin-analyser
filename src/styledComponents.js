@@ -40,6 +40,7 @@ export const Image = styled.img`
     }
     margin-left: -150px;
     width: auto;
+    min-width: 100vw;
   }
   @media (min-width: 768px) {
     margin-left: 0;
@@ -104,7 +105,7 @@ export const AppTitle2 = styled.h2`
   }
 `
 
-export const ButtonCTA = styled.button`
+export const Button = styled.button`
   width: 180px;
   height: 50px;
   border-radius: 30px;
@@ -116,21 +117,41 @@ export const ButtonCTA = styled.button`
   background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
   background: -moz-linear-gradient(top, #e537ff, #8d22c7);
   background: linear-gradient(to bottom, #e537ff, #8d22c7);
-  -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
-  -moz-box-shadow: #d332ff 0px 0px 40px 0px;
-  box-shadow: #d332ff 0px 0px 40px 0px;
-  transition: all .3s ease-in-out;
-  &:hover,
-  &:focus {
-    transform: scale(1.2);
+  &.cta-home {
+    -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
+    -moz-box-shadow: #d332ff 0px 0px 40px 0px;
+    box-shadow: #d332ff 0px 0px 40px 0px;
+    transition: all .3s ease-in-out;
+    &:hover, &:focus {
+      transform: scale(1.2);
+    }
+    @media (max-width: 600px) {
+      width: 150px;
+      height: 40px;
+      margin-top: 1rem;
+    }
   }
-  @media (max-width: 600px) {
-    width: 150px;
+  &.submit {
+    width: 120px;
     height: 40px;
     margin-top: 1rem;
+    &:hover, &:focus {
+      -webkit-box-shadow: #d332ff 0px 0px 10px 0px;
+      -moz-box-shadow: #d332ff 0px 0px 10px 0px;
+      box-shadow: #d332ff 0px 0px 10px 0px;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
+      width: 100px;
+      height: 35px;
+      margin-top: 0;
+    }
   }
 `
 
+export const SubmitButton = styled.button`
+  
+`
 //Statistics components
 
 export const StatisticContainer = styled.div`
@@ -163,14 +184,24 @@ export const StatisticContainer = styled.div`
     }
   }
 `
-export const InputContainer = styled.div`
+
+export const FormRow = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 600px) {
     flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
   }
+`
 
+export const NotificationText = styled.div`
+  color: red;
+  font-size: 0.7rem;
+  @media (min-width: 600px) {
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
 `
 
 export const DateInput = styled.input`
@@ -199,24 +230,6 @@ export const FormLabel = styled.label`
   color: #fff;
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
-  }
-`
-
-export const SubmitButton = styled.button`
-  background: #1db351;
-  font-family: 'Electrolize', sans-serif;
-  font-size: 1rem;
-  color: #fff;
-  border-radius: 30px;
-  border: none;
-  width: 120px;
-  height: 40px;
-  margin-top: 1rem;
-  @media (max-width: 600px) {
-    font-size: 0.9rem;
-    width: 100px;
-    height: 35px;
-    margin-top: 0;
   }
 `
 
