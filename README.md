@@ -3,7 +3,7 @@
 Web application for analyzing historical data of bitcoin. Implementation is based on
 pre-assignment announced by Vincit https://vincit.fi/risingstar/Vincit-Rising-Star-2021-Pre-assignment.pdf .
 
-App uses CoinGecko API to fetch data https://www.coingecko.com/en/api/documentation .
+App is implemented with React.js and it uses CoinGecko API to fetch data https://www.coingecko.com/en/api/documentation .
 
 ### Live Demo
 
