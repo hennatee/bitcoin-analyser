@@ -51,7 +51,7 @@ const Chart = ({prices}) => {
     return DEFAULT_DATES;
   }
 
-  const getTimeRange = prices => {
+  const getTimeRangeAsLabel = prices => {
     if (prices) {
       const from = getDates(prices)[0];
       const to = getDates(prices)[prices.length - 1];
@@ -64,7 +64,7 @@ const Chart = ({prices}) => {
     labels: getDates(prices),
     datasets: [
       {
-        label: getTimeRange(prices),
+        label: getTimeRangeAsLabel(prices),
         data: getPrices(prices),
         backgroundColor: [
           'rgba(255, 255, 255, 0.8)',

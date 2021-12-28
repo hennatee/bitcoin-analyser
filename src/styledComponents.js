@@ -160,7 +160,8 @@ export const StatisticContainer = styled.div`
   height: 320px;
   width: 230px;
   @media (max-width: 768px) {
-    width: auto;
+    width: 80vw;
+    height: auto;
   }
   @media (max-width: 600px) {
     width: 90vw;
@@ -184,7 +185,7 @@ export const StatisticContainer = styled.div`
 export const FormRow = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
@@ -210,6 +211,7 @@ export const DateInput = styled.input`
   border-radius: 4px;
   border: none;
   margin: 1rem 0;
+  background-color: #e8e8e8;
   font-family: 'Electrolize', sans-serif;
   font-size: 1rem;
   @media (max-width: 768px) {

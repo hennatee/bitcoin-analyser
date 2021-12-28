@@ -97,11 +97,11 @@ const Statistics = () => {
   return (
     <Background>
       <DateForm callbackToParent={handleCallback}/>
+      <Chart prices={prices}/>
       <AnalyzedData 
         downward={downward}
         volume={volume}
         timeToBuyAndSell={timeToBuyAndSell}/>
-      <Chart prices={prices}/>
     </Background>
   )
 }
