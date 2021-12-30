@@ -256,7 +256,6 @@ export const HeadingSm = styled.h3`
   }
   &.chart-title {
     font-size: 1.2rem;
-    color: ${COLORS.accent.green};
   }
 `
 

@@ -10,7 +10,7 @@ export const options = {
     title: {
       display: true,
       text: "Price of bitcoin",
-      color: COLORS.text.primary,
+      color: COLORS.text.secondary,
       font: {
         size: 18,
         family: FONTS.primary,
