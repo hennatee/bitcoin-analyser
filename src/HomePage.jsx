@@ -4,8 +4,8 @@ import {
   HomeContainer, 
   AttributionLink,
   Header,
-  AppTitle,
-  AppTitle2,
+  HeadingLg,
+  HeadingMd,
   Button,
   Image
 } from "./styledComponents"
@@ -25,10 +25,10 @@ const Home = () => {
     <Background>
       <HomeContainer>
         <Image className="image-lg" src={imageLgUrl} alt="bitcoin-background" ></Image>
-        <Image className="image-sm" src={imageSmUrl} alt="bitcoin-background" ></Image>  
+        <Image className="image-sm" src={imageSmUrl} alt="bitcoin" ></Image>  
         <Header>
-          <AppTitle>Hackacoin</AppTitle>
-          <AppTitle2>Bitcoin Analyzer</AppTitle2>
+          <HeadingLg>Hackacoin</HeadingLg>
+          <HeadingMd>Bitcoin Analyzer</HeadingMd>
           <Button
             className="cta-home"
             onClick={() => handleClick()}>

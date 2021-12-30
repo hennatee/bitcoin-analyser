@@ -10,7 +10,6 @@ export const dateToUnix = dateString => {
   return unix;
 }
 
-
 /**
  * @param {number} unix Date in UNIX Timestamp (eg. 1638468329477)
  * @returns {Date} Date object converted from UNIX Timestamp
@@ -18,6 +17,14 @@ export const dateToUnix = dateString => {
 export const unixToDate = unix => { 
   const date = new Date(unix);
   return date;
+}
+
+/**
+ * @param {number} unix Date in UNIX Timestamp (eg. 1638468329477)
+ * @returns {string} Date converted to locale date string
+ */
+export const unixToLocaleString = unix => {
+  return unixToDate(unix).toLocaleDateString();
 }
 
 /**
@@ -32,8 +39,6 @@ export const isSameDay = (day1, day2) => {
     day1.getMonth() === day2.getMonth() &&
     day1.getDate() === day2.getDate();
 }
-
-
 
 /**
  * Checks if time range between given parameters is 1-90 days

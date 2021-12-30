@@ -10,7 +10,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #060a40;
+  background-color: #0b0c2b;
 `
 
 export const Button = styled.button`
@@ -19,6 +19,7 @@ export const Button = styled.button`
   border-radius: 30px;
   border: none;
   margin-top: 2rem;
+  font-size: 1.1rem;
   font-family: 'Electrolize', sans-serif;
   color: #fff;
   background: #e537ff;
@@ -43,7 +44,8 @@ export const Button = styled.button`
     width: 120px;
     height: 40px;
     margin-top: 1rem;
-    &:hover, &:focus {
+    font-size: 1rem;
+    &:hover {
       -webkit-box-shadow: #d332ff 0px 0px 10px 0px;
       -moz-box-shadow: #d332ff 0px 0px 10px 0px;
       box-shadow: #d332ff 0px 0px 10px 0px;
@@ -127,11 +129,12 @@ export const Header = styled.div`
   }
 `
 
-export const AppTitle = styled.h1`
+export const HeadingLg = styled.h1`
   font-size: 4rem;
   color: #24f9f9;
   margin-bottom: 0;
   font-family: 'Black Ops One', cursive;
+  letter-spacing: 0.2em;
   @media (max-width: 1200px) {
     font-size: 3rem;
   }
@@ -141,7 +144,7 @@ export const AppTitle = styled.h1`
   }
 `
 
-export const AppTitle2 = styled.h2`
+export const HeadingMd = styled.h2`
   font-size: 1.5rem;
   color: #24f9f9;
   margin-top: 0;
@@ -150,11 +153,12 @@ export const AppTitle2 = styled.h2`
   }
 `
 
-//StatisticsPage components
+//AnalyzerPage components
 
-export const StatisticContainer = styled.div`
+export const AnalyzerContainer = styled.div`
   padding: 3rem 2rem;
-  background: #121075;
+  background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
+  rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(29,34,122,1) 100%, rgba(22,26,102,1) 100%);
   border-radius: 10px;
   margin: 1rem;
   height: 320px;
@@ -172,7 +176,7 @@ export const StatisticContainer = styled.div`
   &.chart {
     width: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     @media (max-width: 768px) {
       width: 90vw;
@@ -246,7 +250,6 @@ export const HeadingSm = styled.h3`
   &:first-of-type {
     margin-top: 0;
   }
-
 `
 
 export const TextSm = styled.p`
@@ -254,6 +257,7 @@ export const TextSm = styled.p`
   color: #aeb5bf;
   margin-top: 0rem;
   margin-bottom: 1.5rem;
+  font-family: "Roboto", sans-serif;
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }

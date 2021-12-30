@@ -1,5 +1,5 @@
-import { StatisticContainer, HeadingSm, TextSm } from "./styledComponents"
-import { unixToDate, twoDecimals } from "./utils";
+import { AnalyzerContainer, HeadingSm, TextSm } from "../styledComponents"
+import { unixToLocaleString, twoDecimals } from "../utils";
 
 
 /**
@@ -34,9 +34,9 @@ const AnalyzedData = ({downward, volume, timeToBuyAndSell}) => {
    * two decimals)
    */
   const volumeToText = volume => {
-    const volumeDate = unixToDate(volume[0]).toLocaleDateString();
+    const volumeDate = unixToLocaleString(volume[0]);
     const highestVolume = volume[1];
-    return `${volumeDate} ${twoDecimals(highestVolume)}`;
+    return `${volumeDate} | ${twoDecimals(highestVolume)}`;
   }
 
   const BUY = "buy";
@@ -62,18 +62,18 @@ const AnalyzedData = ({downward, volume, timeToBuyAndSell}) => {
   }
 
   /**
-   * @param {Array} bestDay 
+   * @param {Array} bestDay Unix Timestamp in index 0 and price in index 1
    * @returns {string} String with date and price
    */
   const bestDayToText = bestDay => {
-    const date = unixToDate(bestDay[0]).toLocaleDateString();
+    const date = unixToLocaleString(bestDay[0]);
     const price = bestDay[1];
-    return `${date} ${twoDecimals(price)}€`
+    return `${date} | ${twoDecimals(price)}€`
   }
 
 
   return (
-    <StatisticContainer>
+    <AnalyzerContainer>
 
       <HeadingSm>Longest downward</HeadingSm>
       <TextSm>{downwardToText(downward)}</TextSm>
@@ -87,7 +87,7 @@ const AnalyzedData = ({downward, volume, timeToBuyAndSell}) => {
       <HeadingSm>Best day to sell</HeadingSm>
       <TextSm>{buyOrSellToText(SELL, timeToBuyAndSell)}</TextSm>
       
-    </StatisticContainer>  
+    </AnalyzerContainer>  
   )
 }
 

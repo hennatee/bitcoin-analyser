@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import DateForm from "./DateForm";
 import AnalyzedData from "./AnalyzedData";
 import Chart from "./Chart"
-import { Background } from "./styledComponents";
+import { Background } from "../styledComponents";
 import { 
   rangeIsBelow91Days,
   unixToDate
-} from "./utils";
+} from "../utils";
 import {
   getLongestDownwardTrend, 
   getArrayByHighestIndexOne,
   getBestDatesToBuyAndSell
-} from "./computations"
+} from "../computations"
 
-const Statistics = () => {
+const Analyzer = () => {
 
   const [data, setData] = useState(null);
   const [prices, setPrices] = useState(null);
@@ -106,4 +106,4 @@ const Statistics = () => {
   )
 }
 
-export default Statistics
+export default Analyzer

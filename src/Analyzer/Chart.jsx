@@ -9,9 +9,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { StatisticContainer } from "./styledComponents";
-import { unixToDate } from "./utils";
+} from "chart.js";
+import { AnalyzerContainer } from "../styledComponents";
+import { unixToLocaleString } from "../utils";
 import { options } from "./config"
 
 /**
@@ -38,16 +38,12 @@ const Chart = ({prices}) => {
   const DEFAULT_PRICES = [0, 10000, 20000, 30000, 40000];
 
   const getPrices = prices => {
-    if (prices) {
-      return prices.map(priceArray => priceArray[1]);
-    }
+    if (prices) return prices.map(priceArray => priceArray[1]);
     return DEFAULT_PRICES;
   }
 
   const getDates = prices => {
-    if (prices) {
-      return prices.map(priceArray => unixToDate(priceArray[0]).toLocaleDateString());
-    }
+    if (prices) return prices.map(priceArray => unixToLocaleString(priceArray[0]));
     return DEFAULT_DATES;
   }
 
@@ -79,12 +75,12 @@ const Chart = ({prices}) => {
   }
 
   return (
-    <StatisticContainer className="chart">
+    <AnalyzerContainer className="chart">
         <Line
         data={chartData}
         options={options}
       />
-    </StatisticContainer>
+    </AnalyzerContainer>
   )
 }
 

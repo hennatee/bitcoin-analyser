@@ -1,7 +1,14 @@
-import { useState } from "react"
-import { dateToUnix, isSameDay, datesAreNotInPast} from './utils'
-import bitcoinService from './bitcoinService'
-import { StatisticContainer, DateInput, FormLabel, Button, FormRow, NotificationText } from "./styledComponents"
+import { useState } from "react";
+import { dateToUnix, isSameDay, datesAreNotInPast} from "../utils";
+import bitcoinService from "../bitcoinService";
+import { 
+  AnalyzerContainer, 
+  DateInput, 
+  FormLabel, 
+  Button, 
+  FormRow, 
+  NotificationText 
+} from "../styledComponents";
 
 /**
  * This component displays form for getting user input of start date and end date and sends
@@ -64,7 +71,7 @@ const DateForm = ({callbackToParent}) => {
   }
 
   return (
-    <StatisticContainer className="form">
+    <AnalyzerContainer className="form">
       <form onSubmit={handleSubmit}>
         <FormRow>
           <div>
@@ -89,11 +96,11 @@ const DateForm = ({callbackToParent}) => {
           </div>
         </FormRow>
         <FormRow>
-          <Button className="submit" type="submit">Submit</Button>
+          <Button className="submit" type="submit">Analyze</Button>
           <NotificationText>{notification}</NotificationText>
         </FormRow>
       </form>
-    </StatisticContainer>
+    </AnalyzerContainer>
   )
 }
 
