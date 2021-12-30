@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { COLORS, FONTS } from "./theme"; 
 
 //Utility components
 
@@ -10,7 +11,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #0b0c2b;
+  background-color: ${COLORS.background.dark};
 `
 
 export const Button = styled.button`
@@ -20,9 +21,9 @@ export const Button = styled.button`
   border: none;
   margin-top: 2rem;
   font-size: 1.1rem;
-  font-family: 'Electrolize', sans-serif;
-  color: #fff;
-  background: #e537ff;
+  font-family: ${FONTS.primary};
+  color: ${COLORS.text.primary};
+  background: ${COLORS.accent.purple};
   background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
   background: -moz-linear-gradient(top, #e537ff, #8d22c7);
   background: linear-gradient(to bottom, #e537ff, #8d22c7);
@@ -107,7 +108,7 @@ export const AttributionLink = styled.a`
   position: fixed;
   bottom: 1rem;
   left: 1.5rem;
-  color: #6b9fed;
+  color: ${COLORS.accent.blue};
 `
 
 export const Header = styled.div`
@@ -131,9 +132,9 @@ export const Header = styled.div`
 
 export const HeadingLg = styled.h1`
   font-size: 4rem;
-  color: #24f9f9;
+  color: ${COLORS.accent.green};
   margin-bottom: 0;
-  font-family: 'Black Ops One', cursive;
+  font-family: ${FONTS.title};
   letter-spacing: 0.2em;
   @media (max-width: 1200px) {
     font-size: 3rem;
@@ -146,7 +147,7 @@ export const HeadingLg = styled.h1`
 
 export const HeadingMd = styled.h2`
   font-size: 1.5rem;
-  color: #24f9f9;
+  color: ${COLORS.accent.green};
   margin-top: 0;
   @media (max-width: 600px) {
     font-size: 1.2rem;
@@ -157,8 +158,9 @@ export const HeadingMd = styled.h2`
 
 export const AnalyzerContainer = styled.div`
   padding: 3rem 2rem;
+  background: ${COLORS.background.light};
   background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
-  rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(29,34,122,1) 100%, rgba(22,26,102,1) 100%);
+  rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(26,30,113,1) 80%, rgba(22,26,102,1) 100%);
   border-radius: 10px;
   margin: 1rem;
   height: 320px;
@@ -200,10 +202,11 @@ export const FormRow = styled.div`
 `
 
 export const NotificationText = styled.div`
-  color: red;
+  color: ${COLORS.text.error};
   font-size: 0.7rem;
+  padding: 0 1rem;
   @media (min-width: 600px) {
-    margin: 1rem 0;
+    margin: 2rem 0;
     font-size: 1rem;
   }
 `
@@ -215,8 +218,8 @@ export const DateInput = styled.input`
   border-radius: 4px;
   border: none;
   margin: 1rem 0;
-  background-color: #e8e8e8;
-  font-family: 'Electrolize', sans-serif;
+  background-color: ${COLORS.text.primary};
+  font-family: ${FONTS.primary};
   font-size: 1rem;
   @media (max-width: 768px) {
     width: 150px;
@@ -232,7 +235,7 @@ export const DateInput = styled.input`
 
 export const FormLabel = styled.label`
   font-size: 1.1rem;
-  color: #e8e8e8;
+  color: ${COLORS.text.primary};
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
   }
@@ -240,7 +243,7 @@ export const FormLabel = styled.label`
 
 export const HeadingSm = styled.h3`
   font-size: 1.1rem;
-  color: #e8e8e8;
+  color: ${COLORS.text.primary};
   font-weight: 400;
   margin-bottom: 0.7rem;
   @media (max-width: 600px) {
@@ -254,10 +257,10 @@ export const HeadingSm = styled.h3`
 
 export const TextSm = styled.p`
   font-size: 0.9rem;
-  color: #aeb5bf;
+  color: ${COLORS.text.secondary};
   margin-top: 0rem;
   margin-bottom: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: ${FONTS.secondary};
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }
