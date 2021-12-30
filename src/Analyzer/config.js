@@ -1,3 +1,5 @@
+import { COLORS, FONTS } from "../theme";
+
 /** Configuration of line chart */
 export const options = {
   responsive: true,
@@ -7,11 +9,11 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Price of bitcoin in euros",
-      color: "#e8e8e8",
+      text: "Price of bitcoin",
+      color: COLORS.text.primary,
       font: {
         size: 18,
-        family: "Electrolize, sans-serif",
+        family: FONTS.primary,
         weight: 400
       }
     },
@@ -24,12 +26,12 @@ export const options = {
   scales: {
     x: {
       ticks: {
-        color: "#e8e8e8"
+        color: COLORS.text.primary
       }
     },
     y: {
       ticks: {
-        color: "#e8e8e8"
+        color: COLORS.text.primary
       }
     }
   }

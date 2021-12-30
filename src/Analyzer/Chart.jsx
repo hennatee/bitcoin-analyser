@@ -10,9 +10,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { AnalyzerContainer } from "../styledComponents";
+import { AnalyzerContainer, HeadingSm } from "../styledComponents";
 import { unixToLocaleString } from "../utils";
 import { options } from "./config"
+import { COLORS } from "../theme";
 
 /**
  * Component displays Line Chart which shows prices of bitcoin 
@@ -53,22 +54,17 @@ const Chart = ({prices}) => {
       const to = getDates(prices)[prices.length - 1];
       return `${from} - ${to}`;
     }
-    return "-";
+    return "Bitcoin Analyzer";
   }
-
+  
   const chartData = {
     labels: getDates(prices),
     datasets: [
       {
-        label: getTimeRangeAsLabel(prices),
+        label: "euros",
         data: getPrices(prices),
-        backgroundColor: [
-          'rgba(255, 255, 255, 0.8)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-        ],
         // border = line displayed in chart
-        borderColor: "#24f9f9",
+        borderColor: COLORS.accent.green,
         borderWidth: prices ? 2 : 0
       }
     ]
@@ -76,7 +72,8 @@ const Chart = ({prices}) => {
 
   return (
     <AnalyzerContainer className="chart">
-        <Line
+      <HeadingSm className="chart-title">{getTimeRangeAsLabel(prices)}</HeadingSm>
+      <Line
         data={chartData}
         options={options}
       />

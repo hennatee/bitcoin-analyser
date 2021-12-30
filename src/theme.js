@@ -1,5 +1,4 @@
-//App theme values
-
+/**App theme values */
 export const COLORS = {
   background: {
     dark: "#0b0c2b",

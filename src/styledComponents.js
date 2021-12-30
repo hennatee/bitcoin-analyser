@@ -178,8 +178,9 @@ export const AnalyzerContainer = styled.div`
   &.chart {
     width: 500px;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     @media (max-width: 768px) {
       width: 90vw;
       height: auto;
@@ -252,6 +253,10 @@ export const HeadingSm = styled.h3`
   }
   &:first-of-type {
     margin-top: 0;
+  }
+  &.chart-title {
+    font-size: 1.2rem;
+    color: ${COLORS.accent.green};
   }
 `
 
