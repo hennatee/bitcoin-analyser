@@ -140,7 +140,7 @@ export const HeadingLg = styled.h1`
     font-size: 3rem;
   }
   @media (max-width: 600px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-top: 0;
   }
 `
