@@ -270,6 +270,7 @@ export const HeadingSm = styled.h3`
   }
   &.chart-title {
     font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 `
 
