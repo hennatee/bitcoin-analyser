@@ -12,6 +12,11 @@ export const Background = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: ${COLORS.background.dark};
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+  }
 `
 
 export const Button = styled.button`
@@ -157,6 +162,10 @@ export const HeadingMd = styled.h2`
 //AnalyzerPage components
 
 export const AnalyzerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   padding: 3rem 2rem;
   background: ${COLORS.background.light};
   background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
@@ -165,28 +174,30 @@ export const AnalyzerContainer = styled.div`
   margin: 1rem;
   height: 320px;
   width: 230px;
-  @media (max-width: 768px) {
-    width: 80vw;
-    height: auto;
+  &.analyzed-data {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  @media (max-width: 600px) {
-    width: 90vw;
+  @media (max-width: 768px) {
+    width: 85vw;
     height: auto;
-    padding: 1rem;
-    margin: 0.1rem 1rem;
+    margin: 0;
+    padding: 2rem 0;
+    background: ${COLORS.background.dark};
+    &:first-of-type {
+      border-bottom: solid 1px ${COLORS.accent.green};
+      border-radius: 0;
+      padding-bottom: 2rem;
+    }
   }
   &.chart {
     width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     @media (max-width: 768px) {
       width: 90vw;
-      height: auto;
-      padding: .5rem;
-    }
+      padding: 4rem 0;
   }
+ 
 `
 
 export const FormRow = styled.div`
@@ -223,11 +234,10 @@ export const DateInput = styled.input`
   font-family: ${FONTS.primary};
   font-size: 1rem;
   @media (max-width: 768px) {
-    width: 150px;
+    width: 34vw;
+    height: 40px;
   }
   @media (max-width: 600px) {
-    width: 34vw;
-    height: 35px;
     font-size: 0.7rem;
     margin-top: 0.5rem;
     padding: 0 0.5rem;
@@ -265,6 +275,10 @@ export const TextSm = styled.p`
   margin-top: 0rem;
   margin-bottom: 1.5rem;
   font-family: ${FONTS.secondary};
+  @media (max-width: 768px) {
+    min-width: 40vw;
+    padding-bottom: 2rem;
+  }
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }

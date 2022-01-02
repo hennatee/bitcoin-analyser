@@ -73,19 +73,24 @@ const AnalyzedData = ({downward, volume, timeToBuyAndSell}) => {
 
 
   return (
-    <AnalyzerContainer>
+    <AnalyzerContainer className="analyzed-data">
 
-      <HeadingSm>Longest downward</HeadingSm>
-      <TextSm>{downwardToText(downward)}</TextSm>
-
-      <HeadingSm>Highest 24h volume</HeadingSm>
-      <TextSm>{volume ? volumeToText(volume) : PLACEHOLDER_EMPTY}</TextSm>
-
-      <HeadingSm>Best day to buy</HeadingSm>
-      <TextSm>{buyOrSellToText(BUY, timeToBuyAndSell)}</TextSm>
-
-      <HeadingSm>Best day to sell</HeadingSm>
-      <TextSm>{buyOrSellToText(SELL, timeToBuyAndSell)}</TextSm>
+      <div>
+        <HeadingSm>Longest downward</HeadingSm>
+        <TextSm>{downwardToText(downward)}</TextSm>
+      </div>
+      <div>
+        <HeadingSm>Highest 24h volume</HeadingSm>
+        <TextSm>{volume ? volumeToText(volume) : PLACEHOLDER_EMPTY}</TextSm>
+      </div>
+      <div>
+        <HeadingSm>Best day to buy</HeadingSm>
+        <TextSm>{buyOrSellToText(BUY, timeToBuyAndSell)}</TextSm>
+      </div>
+      <div>
+        <HeadingSm>Best day to sell</HeadingSm>
+        <TextSm>{buyOrSellToText(SELL, timeToBuyAndSell)}</TextSm>
+      </div>
       
     </AnalyzerContainer>  
   )
