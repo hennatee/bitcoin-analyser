@@ -44,6 +44,7 @@ export const Button = styled.button`
       width: 150px;
       height: 40px;
       margin-top: 1rem;
+      font-size: 0.9rem;
     }
   }
   &.submit {
@@ -147,6 +148,7 @@ export const HeadingLg = styled.h1`
   @media (max-width: 600px) {
     font-size: 2rem;
     margin-top: 0;
+    letter-spacing: 0.1em;
   }
 `
 
@@ -175,9 +177,11 @@ export const AnalyzerContainer = styled.div`
   height: 320px;
   width: 230px;
   &.analyzed-data {
-    align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+    @media (max-width: 768px) {
+      justify-content: center;
+    } 
   }
   @media (max-width: 768px) {
     width: 85vw;
@@ -196,8 +200,8 @@ export const AnalyzerContainer = styled.div`
     @media (max-width: 768px) {
       width: 90vw;
       padding: 4rem 0;
+    }  
   }
- 
 `
 
 export const FormRow = styled.div`
