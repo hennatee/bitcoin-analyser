@@ -11,7 +11,8 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: ${COLORS.background.dark};
+  background: ${COLORS.background.main};
+  background: linear-gradient(150deg, rgba(11,12,43,1) 0%, rgba(6,7,31,1) 100%);
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -169,9 +170,6 @@ export const AnalyzerContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 3rem 2rem;
-  background: ${COLORS.background.light};
-  background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
-  rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(26,30,113,1) 80%, rgba(22,26,102,1) 100%);
   border-radius: 10px;
   margin: 1rem;
   height: 320px;
@@ -183,18 +181,6 @@ export const AnalyzerContainer = styled.div`
       justify-content: center;
     } 
   }
-  @media (max-width: 768px) {
-    width: 85vw;
-    height: auto;
-    margin: 0;
-    padding: 2rem 0;
-    background: ${COLORS.background.dark};
-    &:first-of-type {
-      border-bottom: solid 1px ${COLORS.accent.green};
-      border-radius: 0;
-      padding-bottom: 2rem;
-    }
-  }
   &.chart {
     width: 500px;
     @media (max-width: 768px) {
@@ -202,6 +188,22 @@ export const AnalyzerContainer = styled.div`
       padding: 4rem 0;
     }  
   }
+  @media (max-width: 768px) {
+    width: 90vw;
+    height: auto;
+    margin: 0;
+    padding: 2rem 0;
+    &:first-of-type {
+      background: ${COLORS.background.dark};
+      padding-bottom: 2rem;
+    }
+  }
+  @media (min-width: 769px) {
+    background: ${COLORS.background.light};
+    background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
+    rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(26,30,113,1) 80%, rgba(22,26,102,1) 100%);
+  }
+  
 `
 
 export const FormRow = styled.div`

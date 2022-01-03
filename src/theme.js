@@ -1,8 +1,9 @@
 /**App theme values */
 export const COLORS = {
   background: {
-    dark: "#0b0c2b",
-    light: "#161a66"
+    main: "#0b0c2b",
+    light: "#161a66",
+    dark: "#06071f"
   },
   text: {
     primary: "#e8e8e8",
