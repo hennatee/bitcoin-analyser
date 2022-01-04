@@ -3,9 +3,9 @@
 ![bitcoin mockup](https://github.com/hennatee/hennatee.github.io/blob/main/media/bitcoin-mockup.png?raw=true)
 
 Web application for analyzing historical data of bitcoin. Implementation is based on
-pre-assignment announced by Vincit https://vincit.fi/risingstar/Vincit-Rising-Star-2021-Pre-assignment.pdf .
+pre-assignment announced by Vincit https://vincit.fi/risingstar/Vincit-Rising-Star-2021-Pre-assignment.pdf 
 
-App is implemented with React.js and it uses CoinGecko API to fetch data https://www.coingecko.com/en/api/documentation .
+App is implemented with React.js and it uses CoinGecko API to fetch data https://www.coingecko.com/en/api/documentation 
 
 ### Live Demo
 
