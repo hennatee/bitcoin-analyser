@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS, FONTS } from "./theme"; 
+import { COLORS, FONTS } from "./theme";
 
 //Utility components
 
@@ -12,13 +12,17 @@ export const Background = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background: ${COLORS.background.main};
-  background: linear-gradient(150deg, rgba(11,12,43,1) 0%, rgba(6,7,31,1) 100%);
+  background: linear-gradient(
+    150deg,
+    rgba(11, 12, 43, 1) 0%,
+    rgba(6, 7, 31, 1) 100%
+  );
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 1rem;
   }
-`
+`;
 
 export const Button = styled.button`
   width: 180px;
@@ -30,15 +34,22 @@ export const Button = styled.button`
   font-family: ${FONTS.primary};
   color: ${COLORS.text.primary};
   background: ${COLORS.accent.purple};
-  background: -webkit-gradient(linear, left top, left bottom, from(#e537ff), to(#8d22c7));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#e537ff),
+    to(#8d22c7)
+  );
   background: -moz-linear-gradient(top, #e537ff, #8d22c7);
   background: linear-gradient(to bottom, #e537ff, #8d22c7);
   &.cta-home {
     -webkit-box-shadow: #d332ff 0px 0px 40px 0px;
     -moz-box-shadow: #d332ff 0px 0px 40px 0px;
     box-shadow: #d332ff 0px 0px 40px 0px;
-    transition: all .3s ease-in-out;
-    &:hover, &:focus {
+    transition: all 0.3s ease-in-out;
+    &:hover,
+    &:focus {
       transform: scale(1.2);
     }
     @media (max-width: 600px) {
@@ -65,7 +76,7 @@ export const Button = styled.button`
       margin-top: 0;
     }
   }
-`
+`;
 
 //Homepage components
 
@@ -83,7 +94,7 @@ export const HomeContainer = styled.div`
       width: 60vw;
     }
   }
-`
+`;
 export const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -108,7 +119,7 @@ export const Image = styled.img`
       display: none;
     }
   }
-`
+`;
 
 export const AttributionLink = styled.a`
   font-size: 0.7rem;
@@ -116,7 +127,7 @@ export const AttributionLink = styled.a`
   bottom: 1rem;
   left: 1.5rem;
   color: ${COLORS.accent.blue};
-`
+`;
 
 export const Header = styled.div`
   height: 50%;
@@ -135,7 +146,7 @@ export const Header = styled.div`
     bottom: 2rem;
     position: relative;
   }
-`
+`;
 
 export const HeadingLg = styled.h1`
   font-size: 4rem;
@@ -151,7 +162,7 @@ export const HeadingLg = styled.h1`
     margin-top: 0;
     letter-spacing: 0.1em;
   }
-`
+`;
 
 export const HeadingMd = styled.h2`
   font-size: 1.5rem;
@@ -160,7 +171,7 @@ export const HeadingMd = styled.h2`
   @media (max-width: 600px) {
     font-size: 1.2rem;
   }
-`
+`;
 
 //AnalyzerPage components
 
@@ -179,14 +190,14 @@ export const AnalyzerContainer = styled.div`
     flex-wrap: wrap;
     @media (max-width: 768px) {
       justify-content: center;
-    } 
+    }
   }
   &.chart {
     width: 500px;
     @media (max-width: 768px) {
       width: 90vw;
       padding: 4rem 0;
-    }  
+    }
   }
   @media (max-width: 768px) {
     width: 90vw;
@@ -200,11 +211,17 @@ export const AnalyzerContainer = styled.div`
   }
   @media (min-width: 769px) {
     background: ${COLORS.background.light};
-    background: linear-gradient(130deg, rgba(22,26,102,1) 0%, rgba(25,29,109,1) 22%,
-    rgba(27,31,115,1) 42%, rgba(29,34,122,1) 63%, rgba(26,30,113,1) 80%, rgba(22,26,102,1) 100%);
+    background: linear-gradient(
+      130deg,
+      rgba(22, 26, 102, 1) 0%,
+      rgba(25, 29, 109, 1) 22%,
+      rgba(27, 31, 115, 1) 42%,
+      rgba(29, 34, 122, 1) 63%,
+      rgba(26, 30, 113, 1) 80%,
+      rgba(22, 26, 102, 1) 100%
+    );
   }
-  
-`
+`;
 
 export const FormRow = styled.div`
   display: flex;
@@ -217,7 +234,7 @@ export const FormRow = styled.div`
   @media (max-width: 319px) {
     flex-wrap: wrap;
   }
-`
+`;
 
 export const NotificationText = styled.div`
   color: ${COLORS.text.error};
@@ -227,7 +244,7 @@ export const NotificationText = styled.div`
     margin: 2rem 0;
     font-size: 1rem;
   }
-`
+`;
 
 export const DateInput = styled.input`
   width: 200px;
@@ -248,7 +265,7 @@ export const DateInput = styled.input`
     margin-top: 0.5rem;
     padding: 0 0.5rem;
   }
-`
+`;
 
 export const FormLabel = styled.label`
   font-size: 1.1rem;
@@ -256,7 +273,7 @@ export const FormLabel = styled.label`
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
   }
-`
+`;
 
 export const HeadingSm = styled.h3`
   font-size: 1.1rem;
@@ -274,7 +291,7 @@ export const HeadingSm = styled.h3`
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
-`
+`;
 
 export const TextSm = styled.p`
   font-size: 0.9rem;
@@ -292,4 +309,4 @@ export const TextSm = styled.p`
   &:last-of-type {
     margin-bottom: 0;
   }
-`
+`;

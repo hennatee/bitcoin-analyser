@@ -14,25 +14,25 @@ export const options = {
       font: {
         size: 18,
         family: FONTS.primary,
-        weight: 400
-      }
+        weight: 400,
+      },
     },
   },
   elements: {
-    point:{
-        radius: 0
-    }
+    point: {
+      radius: 0,
+    },
   },
   scales: {
     x: {
       ticks: {
-        color: COLORS.text.primary
-      }
+        color: COLORS.text.primary,
+      },
     },
     y: {
       ticks: {
-        color: COLORS.text.primary
-      }
-    }
-  }
+        color: COLORS.text.primary,
+      },
+    },
+  },
 };

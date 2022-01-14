@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DateForm from "./DateForm";
 import AnalyzedData from "./AnalyzedData";
-import Chart from "./Chart"
+import Chart from "./Chart";
 import { Background } from "../styledComponents";
-import { 
-  rangeIsBelow91Days,
-  unixToDate
-} from "../utils";
+import { rangeIsBelow91Days, unixToDate } from "../utils";
 import {
-  getLongestDownwardTrend, 
+  getLongestDownwardTrend,
   getArrayByHighestIndexOne,
-  getBestDatesToBuyAndSell
-} from "../computations"
+  getBestDatesToBuyAndSell,
+} from "../computations";
 
 const Analyzer = () => {
-
   const [data, setData] = useState(null);
   const [prices, setPrices] = useState(null);
   const [downward, setDownward] = useState();
@@ -23,87 +19,83 @@ const Analyzer = () => {
 
   /**
    * Updates state when data is received from form
-   * 
-   * @param {Object} formData 
+   *
+   * @param {Object} formData
    */
-  const handleCallback = formData => {
+  const handleCallback = (formData) => {
     setData(formData);
-  }
+  };
 
   /**
    * @param {Array} arrays Array of arrays with length >= 2
-   * @returns {Array} Filtered array only including arrays that 
-   * have 00:xx UTC time in in index 0 
+   * @returns {Array} Filtered array only including arrays that
+   * have 00:xx UTC time in in index 0
    */
-  const getMidnightValues = arrays => {
-    return arrays.filter(array => 
-      unixToDate(array[0]).getUTCHours() === 0
-    )
-  }
+  const getMidnightValues = (arrays) => {
+    return arrays.filter((array) => unixToDate(array[0]).getUTCHours() === 0);
+  };
 
   /**
    * Checks if price is increasing during the given time range
-   * 
+   *
    * @param {number} downward Computed value of longest downward in given time range
    * @param {Array} priceData Data used to compute the downward
-   * @returns {boolean} Returns true if price is increasing at some point in given data  
+   * @returns {boolean} Returns true if price is increasing at some point in given data
    */
   const priceIsIncreasing = (downward, priceData) => {
-    return downward < (priceData.length - 1)
-  }
+    return downward < priceData.length - 1;
+  };
 
   /**
    * Analyzes the response data gotten from CoinGecko api.
    * - computes the longest downward trend
    * - finds the day with the highest trading volume
    * - computes the best day to buy and sell
-   * 
+   *
    * @param {Object} data Data-object returned from form-component including
    * properties startUnix, endUnix and response
    */
-  const analyseData = data => {
-    if (!data) return 
+  const analyseData = (data) => {
+    if (!data) return;
     let priceData = data.response.prices;
     let volumeData = data.response.total_volumes;
 
     //endpoint returns hourly data for time range between 1-90 days
     if (rangeIsBelow91Days(data.startUnix, data.endUnix)) {
-      priceData = getMidnightValues(priceData)
+      priceData = getMidnightValues(priceData);
       volumeData = getMidnightValues(volumeData);
-    } 
+    }
 
     setPrices(priceData);
-    
+
     const longestDownward = getLongestDownwardTrend(priceData);
     setDownward(longestDownward);
 
     const highestVolumeData = getArrayByHighestIndexOne(volumeData);
     setVolume(highestVolumeData);
 
-    if(priceIsIncreasing(longestDownward, priceData)) {
+    if (priceIsIncreasing(longestDownward, priceData)) {
       const bestDates = getBestDatesToBuyAndSell(priceData);
       setTimeToBuyAndSell(bestDates);
     } else {
       setTimeToBuyAndSell(null);
     }
-    
-  }
+  };
   useEffect(() => {
     analyseData(data);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },  [data])
-  
-  
+  }, [data]);
+
   return (
     <Background>
-      <DateForm callbackToParent={handleCallback}/>
-      <Chart prices={prices}/>
-      <AnalyzedData 
+      <DateForm callbackToParent={handleCallback} />
+      <Chart prices={prices} />
+      <AnalyzedData
         downward={downward}
         volume={volume}
-        timeToBuyAndSell={timeToBuyAndSell}/>
+        timeToBuyAndSell={timeToBuyAndSell}
+      />
     </Background>
-  )
-}
+  );
+};
 
-export default Analyzer
+export default Analyzer;
