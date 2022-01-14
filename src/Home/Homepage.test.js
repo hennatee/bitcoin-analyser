@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
-import { describe, test, expect } from "@testing-library/jest-dom";
+import { describe, expect, test } from "@jest/globals";
 import { MemoryRouter } from "react-router";
 import Homepage from "./HomePage";
 
@@ -21,6 +21,7 @@ describe("Homepage component", () => {
         <Homepage />
       </MemoryRouter>
     );
+    
     const ctaButton = screen.getByTestId("cta-home");
     expect(view.container).toContainElement(ctaButton);
   });

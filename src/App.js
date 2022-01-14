@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Analyzer from "./Analyzer/AnalyzerPage";
 import HomePage from "./Home/HomePage";
 
+
 function App() {
   return (
     <Router>
