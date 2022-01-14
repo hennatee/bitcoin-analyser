@@ -1,5 +1,7 @@
 # Bitcoin analyzer
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 ![bitcoin mockup](https://github.com/hennatee/hennatee.github.io/blob/main/media/bitcoin-mockup.png?raw=true)
 
 Web application for analyzing historical data of bitcoin. Implementation is based on
