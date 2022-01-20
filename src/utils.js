@@ -1,7 +1,8 @@
 const DAY_IN_SECONDS = 24 * 60 * 60; // 86400s
+export const HOUR_IN_SECONDS = 60 * 60; //3600s
 
 /**
- * @param {string} dateString Date to convert in format yyyy-mm-dd
+ * @param {string} dateString Date in format yyyy-mm-dd
  * @returns {number} Date in UNIX Timestamp (eg. 1422577232)
  */
 export const dateToUnix = (dateString) => {

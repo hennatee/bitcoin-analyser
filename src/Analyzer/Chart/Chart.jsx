@@ -10,10 +10,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { AnalyzerContainer, HeadingSm } from "../styledComponents";
-import { unixToLocaleString } from "../utils";
+import { AnalyzerContainer, HeadingSm } from "../../styledComponents";
+import { unixToLocaleString } from "../../utils";
 import { options } from "./config";
-import { COLORS } from "../theme";
+import { COLORS } from "../../theme";
 import PropTypes from "prop-types";
 
 /**

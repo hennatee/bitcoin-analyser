@@ -1,6 +1,6 @@
 import React from "react"; 
-import { AnalyzerContainer, HeadingSm, TextSm } from "../styledComponents";
-import { unixToLocaleString, twoDecimals } from "../utils";
+import { AnalyzerContainer, HeadingSm, TextSm } from "../../styledComponents";
+import { unixToLocaleString, twoDecimals } from "../../utils";
 import PropTypes from "prop-types";
 
 /**
@@ -75,19 +75,19 @@ const AnalyzedData = ({ downward, volume, timeToBuyAndSell }) => {
     <AnalyzerContainer className="analyzed-data" data-testid="analyzed-data">
       <div>
         <HeadingSm>Longest downward</HeadingSm>
-        <TextSm>{downwardToText(downward)}</TextSm>
+        <TextSm data-testid="downward-text">{downwardToText(downward)}</TextSm>
       </div>
       <div>
         <HeadingSm>Highest 24h volume</HeadingSm>
-        <TextSm>{volume ? volumeToText(volume) : PLACEHOLDER_EMPTY}</TextSm>
+        <TextSm data-testid="volume-text">{volume ? volumeToText(volume) : PLACEHOLDER_EMPTY}</TextSm>
       </div>
       <div>
         <HeadingSm>Best day to buy</HeadingSm>
-        <TextSm>{buyOrSellToText(BUY, timeToBuyAndSell)}</TextSm>
+        <TextSm data-testid="buy-text">{buyOrSellToText(BUY, timeToBuyAndSell)}</TextSm>
       </div>
       <div>
         <HeadingSm>Best day to sell</HeadingSm>
-        <TextSm>{buyOrSellToText(SELL, timeToBuyAndSell)}</TextSm>
+        <TextSm data-testid="sell-text">{buyOrSellToText(SELL, timeToBuyAndSell)}</TextSm>
       </div>
     </AnalyzerContainer>
   );

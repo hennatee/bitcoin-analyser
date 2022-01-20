@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { dateToUnix, isSameDay, datesAreNotInPast } from "../utils";
-import bitcoinService from "../bitcoinService";
+import { dateToUnix, isSameDay, datesAreNotInPast, HOUR_IN_SECONDS } from "../../utils";
+import bitcoinService from "../../bitcoinService";
 import {
   AnalyzerContainer,
   DateInput,
@@ -8,7 +8,7 @@ import {
   Button,
   FormRow,
   NotificationText,
-} from "../styledComponents";
+} from "../../styledComponents";
 import PropTypes from "prop-types";
 
 /**
@@ -19,15 +19,14 @@ import PropTypes from "prop-types";
  * and API response to the parent component.
  */
 const DateForm = ({ callbackToParent }) => {
+  
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [notification, setNotification] = useState("");
 
-  const HOUR_IN_SECONDS = 60 * 60; //3600s
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     if (datesAreValid(startDate, endDate)) {
       const start = dateToUnix(startDate);
       //1h is added to the end date to get full data from that day
@@ -44,7 +43,7 @@ const DateForm = ({ callbackToParent }) => {
         setNotification("");
       } catch (error) {
         console.log(error);
-        setNotification("Something went wrong, please try again!");
+        setNotification(`${error.message}, please try again!`);
       }
     }
   };
@@ -71,7 +70,9 @@ const DateForm = ({ callbackToParent }) => {
 
   return (
     <AnalyzerContainer className="form">
-      <form onSubmit={handleSubmit}>
+      <form 
+        data-testid="dateForm"
+        onSubmit={handleSubmit}>
         <FormRow>
           <div>
             <FormLabel>Start date</FormLabel>
@@ -80,6 +81,7 @@ const DateForm = ({ callbackToParent }) => {
               type="date"
               id="inputDate"
               name="startInput"
+              data-testid="startInput"
               required
               onChange={({ target }) => setStartDate(target.value)}
             ></DateInput>
@@ -91,6 +93,7 @@ const DateForm = ({ callbackToParent }) => {
               type="date"
               id="inputDate"
               name="endInput"
+              data-testid="endInput"
               required
               onChange={({ target }) => setEndDate(target.value)}
             ></DateInput>

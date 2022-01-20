@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import DateForm from "./DateForm";
-import AnalyzedData from "./AnalyzedData";
-import Chart from "./Chart";
+import DateForm from "./Form/DateForm";
+import AnalyzedData from "./Data/AnalyzedData";
+import Chart from "./Chart/Chart";
 import { Background } from "../styledComponents";
 import { rangeIsBelow91Days, unixToDate } from "../utils";
 import {

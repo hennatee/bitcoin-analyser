@@ -73,10 +73,10 @@ export const getBestDatesToBuyAndSell = (prices) => {
     toSell: arrayWithHighestPrice,
   };
 
-  //Check if date of the highest price is before the lowest price
-  //and compute new dates if so
+  /*Check if date of the highest price is before the lowest price
+  and compute new dates if so*/
   if (highestIsBeforeLowest(arrayWithHighestPrice, arrayWithLowestPrice)) {
-    bestDates = computeBiggestIncrease(prices);
+    bestDates = getDatesByBiggestIncrease(prices);
   }
 
   return bestDates;
@@ -90,7 +90,7 @@ export const getBestDatesToBuyAndSell = (prices) => {
  * @returns {Object} Object with properties toBuy and toSell
  * containing array with UNIX time in index 0 and price in index 1
  */
-const computeBiggestIncrease = (prices) => {
+const getDatesByBiggestIncrease = (prices) => {
   let indexToBuy;
   let indexToSell;
   let currentDifference;

@@ -1,4 +1,4 @@
-import { COLORS, FONTS } from "../theme";
+import { COLORS, FONTS } from "../../theme";
 
 /** Configuration of line chart */
 export const options = {
